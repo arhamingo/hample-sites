@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Hample</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Hample</h1>
+        <img src="images/logo.png" alt="Hample Logo" class="header-logo" />
+      </div>
+      <div class="apps">
+        <div class="app">
+          <div class="app-link-wrapper">
+            <a
+              href="https://navidrome.hample.qzz.io"
+              target="_blank"
+              class="app-link"
+            >
+              <img src="images/navidrome.png" alt="Navidrome" />
+              <span>Navidrome</span>
+            </a>
+            <button
+              class="copy-btn"
+              data-link="https://navidrome.hample.qzz.io"
+            >
+              <ion-icon name="share-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="app">
+          <div class="app-link-wrapper">
+            <a
+              href="https://jellyfin.hample.qzz.io"
+              target="_blank"
+              class="app-link"
+            >
+              <img src="images/jellyfin.png" alt="Jellyfin" />
+              <span>Jellyfin</span>
+            </a>
+            <button class="copy-btn" data-link="https://jellyfin.hample.qzz.io">
+              <ion-icon name="share-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>© hample.qzz.io =)</p>
+    </footer>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) => console.log("Service Worker registered.", reg))
+            .catch((err) =>
+              console.log("Service Worker registration failed:", err)
+            );
+        });
+      }
+
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const link = button.getAttribute("data-link");
+          navigator.clipboard
+            .writeText(link)
+            .then(() => {
+              button.textContent = "Copied!";
+              setTimeout(() => {
+                button.innerHTML = '<ion-icon name="share-outline"></ion-icon>';
+              }, 2000);
+            })
+            .catch(() => {
+              button.textContent = "Failed to copy";
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
