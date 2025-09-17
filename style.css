@@ -101,32 +101,6 @@ h1 {
   display: inline-block; /* ensure inline-block for alignment */
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  color: #888;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.8em;
-  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
-  user-select: none;
-}
-
-/* Footer fixed bottom */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  color: #888;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.8em;
-  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
-  user-select: none;
-}
 
 /* Layout for app link + copy button */
 .app-link-wrapper {
