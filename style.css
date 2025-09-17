@@ -53,18 +53,18 @@ h1 {
 .app-link:focus {
   transform: scale(1.05);
   filter: brightness(1.2);
-  outline: none; /* optional: remove focus outline for mouse users */
+  outline: none;
 }
 
 .app-link:hover {
-  background: none; /* remove hover background */
+  background: none;
   cursor: pointer;
 }
 
 .app-link img {
   width: 48px;
   height: auto;
-  border-radius: 0; /* remove rounded corners */
+  border-radius: 0;
 }
 
 .app-link span {
@@ -99,8 +99,9 @@ h1 {
   display: inline-block;
 }
 
-/* Layout for app link + copy button */
+/* Layout for app link + copy button and message */
 .app-link-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -123,4 +124,21 @@ h1 {
 
 .copy-btn:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Styling for the copy message */
+.copy-message {
+  font-size: 0.9em;
+  color: #fff;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  right: -70px; /* Adjust as needed */
+  white-space: nowrap;
+}
+
+.copy-message.show {
+  opacity: 1;
+  transform: translateX(0);
 }
