@@ -84,19 +84,19 @@ h1 {
 
 .header {
   display: flex;
-  align-items: center; /* This vertically centers content */
+  align-items: center;
   gap: 12px;
   justify-content: center;
   margin-bottom: 60px;
 }
 
 .header-logo {
-  width: 48px; /* or whatever size you want */
+  width: 48px;
   height: auto;
   border-radius: 6px;
-  vertical-align: middle; /* add this */
+  vertical-align: middle;
   margin-bottom: 30px;
-  display: inline-block; /* ensure inline-block for alignment */
+  display: inline-block;
 }
 
 /* Layout for app link + copy button */

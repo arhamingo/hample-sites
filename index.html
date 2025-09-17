@@ -77,17 +77,10 @@
           const link = button.getAttribute("data-link");
           const initialIcon = '<ion-icon name="share-outline"></ion-icon>';
 
-          // Check if the Web Share API is supported by the browser
           if (navigator.share) {
             try {
-              await navigator.share({
-                url: link,
-              });
-              // This part of the code runs if the user shares successfully
-              // The share sheet itself handles the copy action
+              await navigator.share({ url: link });
             } catch (error) {
-              // This part of the code runs if sharing fails or is cancelled
-              // Fallback to copying to the clipboard
               try {
                 await navigator.clipboard.writeText(link);
                 button.textContent = "Copied!";
@@ -102,7 +95,6 @@
               }
             }
           } else {
-            // Fallback for browsers that don't support the Web Share API
             try {
               await navigator.clipboard.writeText(link);
               button.textContent = "Copied!";
